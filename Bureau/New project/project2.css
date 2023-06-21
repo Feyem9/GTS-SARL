@@ -119,15 +119,15 @@ section div.div-container {
     margin: 1rem; 
     overflow: hidden;
 }
-main{
-    width: 80px;
-}
 
 .citation{
     border: 2px solid black;
     height: 100%;
 }
 
+main{
+    width: 80px;
+}
 .animation{ 
     height: 100%;
     width: 100%; 
@@ -169,7 +169,7 @@ main{
 
 
 
-/* section #categories {
+ section #categories {
     display: flex;
     flex-direction: column;
     margin-top: 2rem;
@@ -256,8 +256,8 @@ fieldset {
     color: rgb(0, 0, 0);
     font-style: italic;
 
-} */
-/* 
+} 
+ 
 .footer-container {
     height: 200px;
     background-color: #ff7700;
@@ -275,7 +275,7 @@ fieldset {
 .footer-container .services-info{
     margin-left: 40px;
     margin-right: 40px;
-    margin-top: 10px;
+      margin-top: 10px;
     margin-bottom: 50px;
     color:#ECFEE8;
 }
@@ -287,4 +287,4 @@ fieldset {
 }
 .footer-container .affiliation-info{
     color: #ECFEE8;
-}  */
+}
