@@ -1,0 +1,48 @@
+<div class="all">
+
+    <img src="assets/SportsCo.png" alt="image" height="622.433" width="500">
+    <div class="parent">
+
+        <div class="child">
+            <h1>Welcome Back!</h1>
+            <p>track your health with <b>SportsCo.</b></p><br>
+
+            <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+
+               <div class="">
+                <label for="email"><b>Email</b></label><br><br>
+                <input type="email" placeholder="enter your email" class="input" formControlName="email"
+                    id="email"><br><br>
+               </div>
+
+               <div class="">
+                <label for="password"><b>password</b></label><br><br>
+                <input type="password" placeholder="password" class="input" formControlName="email" id="password"><br>
+               </div>
+
+
+                <div class="row-2"><br>
+                    <h4> <input type="checkbox" class="check">remember me</h4>
+                    <a href="/forget-password">forgot password?</a><br>
+                </div>
+
+                <div class="">
+                    <div class="" *ngIf="loginError">{{ loginError }}</div>
+                    <button type="submit"  class="boox">Login</button>
+                    <p class="good">OR</p>
+                </div><br>
+            </form>
+            <div>
+                <div class="icons">
+                    <a href="#"><img src="assets/Google.svg" alt="" id="icon"></a>
+                    <a href="#"><img src="assets/Facebook.svg" alt="" id="icon"></a>
+                    <a href="#"><img src="assets/Apple.svg" alt="" id="icon"></a>
+                </div>
+
+                <p>new to SportsCo?<a href="/register" routerLink="/register">create an account</a></p>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <app-registration></app-registration>  -->
