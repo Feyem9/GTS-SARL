@@ -1,0 +1,77 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    display: flex;
+    width: 100%;
+}
+
+.verticale{
+    height: 500px;
+    width: 200px;
+    padding-top: 10px;
+    text-align: center;
+    padding-left: 16px;
+    background-color: gray;
+    border-radius:15px;
+}
+
+.horizontal{
+    width: 1090px;
+    height: 150px;
+    /* border: 4px black solid; */
+    background: green;
+    text-align: center;
+    align-items: center;justify-content: center;
+    padding-top: 30px;
+    color: red;
+    border-radius:15px;
+}
+
+.cv{
+    color: rgb(0, 0, 0);
+    border: 6px solid rgb(226, 192, 0);
+    border-radius: 30px;
+}
+
+.flex{
+    display: flex;
+}
+
+.contenu{
+    display: flex;
+    margin-left: 215px;
+    margin-top: -330px;
+    /* border: 1px solid green; */
+    list-style: circle;
+}
+.exp{
+    /* border: green 2px solid; */
+    list-style: none;
+    text-decoration: none;
+    padding: 18px;
+    background: rgb(251, 255, 6);
+    border-radius:15px;
+    text-shadow: 6px 6px 6px black;
+}
+.compt{
+    /* border: rgb(0, 128, 128) 2px solid; */
+    list-style: none;
+    text-decoration: none;
+    padding: 18px;
+    background: rgb(255, 0, 0);
+    border-radius:15px;
+    text-shadow: 6px 6px 6px black;
+}
+.format{
+    /* border: rgb(128, 0, 100) 2px solid; */
+    list-style: none;
+    text-decoration: none;
+    padding: 18px;
+    background: rgb(0, 178, 209);
+    border-radius:15px;
+    text-shadow: 6px 6px 6px black;
+}

@@ -239,26 +239,14 @@ for(let i = 0 ; i < stringarray2.length ; i++){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function splitNum(){
+   let numbers = 12345
+   let stringNum = numbers.toString()
+   let splitString = stringNum.split('')
+   let splitNum = splitString.map(Number)
+   console.log('List of digits includes', splitNum);
+}
+splitNum()
 
 
 //  ------------------------------------------------------------------------------------------------------
@@ -267,3 +255,14 @@ for(let i = 0 ; i < stringarray2.length ; i++){
 
 // Write a function that returns the sum of numbers. So for a number like 237, it should return 12 which
 //  is the result of  2+3+7.
+
+
+function sumOfNum(num){
+   let stringNum = num.toString()
+   let newString = stringNum.split('')
+   let splitNum = newString.map(Number)
+   let sum = 0
+   splitNum.map( x => sum += x)
+   console.log(sum);
+}
+sumOfNum(123456)
