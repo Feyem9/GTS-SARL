@@ -1,0 +1,14 @@
+<div class="slide-container">
+    <div class="slide-item" *ngFor="let image of images ; let i = index" ngClass="{
+         'selected' : i === selectedIndex,
+         'prev' : i === selectedIndex - 1,
+         'next' : i === selectedIndex + 1,
+         'hideleft' : i < selectedIndex - 1,
+         'hideright' : i > selectedIndex + 1,
+    }">
+        <img [src]="image.img" [alt]="image.description" class="slide-img" [name]="image.name" 
+        (panright)="showPrev(i)"
+        (panleft)="showNext(i)"
+        >
+    </div>
+</div>

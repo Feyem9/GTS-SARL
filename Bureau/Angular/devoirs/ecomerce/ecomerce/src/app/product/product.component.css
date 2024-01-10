@@ -1,0 +1,14 @@
+ /* .li{
+    list-style: none;
+    text-overflow: ellipsis;
+    width: 25%;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    display: grid;
+    overflow:scroll;
+    cursor: pointer;
+    margin: 10px;
+    padding: 1%;
+    /* background-color: black; */
+/* }   */

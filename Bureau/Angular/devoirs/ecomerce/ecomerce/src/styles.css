@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.li{
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    display: grid;
+    overflow:scroll;
+    cursor: pointer;
+    margin: 10px;
+    padding: 1%;
+    list-style: none;
+    text-overflow: ellipsis;
+    width: 100%;
+    border: solid 3px white;
+}
+
+.but{
+    background: yellow;
+    color: black;
+    font-weight: bolder;
+    ;
+}
+
+h1{
+    font-weight: bolder;
+    font-size: x-large;
+}

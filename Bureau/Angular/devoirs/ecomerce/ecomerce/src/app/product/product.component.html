@@ -1,0 +1,14 @@
+
+
+<li class="li border-spacing-x-1 m-4 p-4 " >
+    <!-- <p class="index"> {{i+1}}</p> -->
+    <img [src]="badge.image" [alt]="badge.title" width="380px" />
+
+    <p class="title"> {{badge.title | titlecase}} </p>
+    <p class="amount">{{badge.price | currency}}</p>
+
+    <button class="but" (click)="addToCart()" *ngIf="!isInCart" style="width: 200px;height: 50px;">add to cart</button>
+    <button class="but" (click)="removeFromCart()" *ngIf="isInCart" style="width: 200px;height: 50px;">remove from Cart</button>
+</li>
+    
+

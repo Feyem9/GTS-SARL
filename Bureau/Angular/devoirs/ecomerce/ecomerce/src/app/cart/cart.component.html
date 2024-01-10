@@ -1,0 +1,13 @@
+
+
+
+<p>Your Cart!</p>
+<div *ngIf="getCart().length > 0"> 
+    <div *ngFor="let badge of getCart()">
+        <p> <b>{{badge.title}}</b> </p>
+        <!-- <p> {{badge.price}} </p> -->
+    </div>
+</div>
+<div *ngIf="getCart().length == 0"> 
+    Your Cart is Empty
+</div>

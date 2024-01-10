@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>museschool</title>
+  <link rel="stylesheet"
+    href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- COMMENÇONS AVEC LE HEADER -->
+  <header class="header-container">
+
+    <h1>MUSESCHOOL</h1>
+    <nav class="navbar">
+      <ul class="navbar-container">
+        <li class="nav-item"><a href="index.html" class="nav-link">home</a></li>
+        <li class="nav-item"><a href="categories.html" class="nav-link">categories</a></li>
+        <li class="nav-item"><a href="maintenances.html" class="nav-link">maintenances</a></li>
+        <li class="nav-item"><a href="login.html" class="nav-link">login</a></li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <!-- FINI AVEC LE HEADER -->
+
+  <!-- DEBUT DE LA SECTION PUBLICITÉ -->
+  <section>
+    <div class="div-container">
+      <marquee behavior="left" direction="right">
+        <p id="pub">la musique dans les regles de l'art</p>
+      </marquee>
+    </div>
+  </section>
+
+  <!-- FIN DE LA SECTION PUBLICITÉ -->
+
+  <!-- DEBUT DE LA GRANDE SECTION MAIN -->
+
+  <main>
+
+    <!-- DEBUT DE LA PARTIE CITATION -->
+    <div class="citation">
+      <h1 class="h1">C'est la musique et la danse qui me mettent en paix avec le monde. <br>
+        <p style="color: orangered; font-size: 20px;background: aqua;">"NELSON MANDELA" </p>
+      </h1>
+
+      <button class="btn">Get Started => </button> <br>
+      <button class="btn1">Watch Demo => </button>
+
+    </div>
+
+    <!-- FIN DE LA PARTIE CITATION -->
+
+    <!-- DEBUT DE LA SECTION DIAPORAMA -->
+
+    <div class="diapo" data-speed="3000" data-transition="700">
+      <div class="elements">
+        <div class="element">
+          <img src="./image/slide/piano.jpg" alt="Clavier">
+          <div class="caption">
+            <h2>Clavier</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis, fuga!</p>
+          </div>
+        </div>
+        <div class="element">
+          <img src="./image/violon.jpg" alt="violon">
+          <div class="caption">
+            <h2>Violon</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis, fuga!</p>
+          </div>
+        </div>
+        <div class="element">
+          <img src="./image/flute.jpg" alt="flute">
+          <div class="caption">
+            <h2>Flute</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis, fuga!</p>
+          </div>
+        </div>
+        <div class="element">
+          <img src="./image/saxophone.jpg" alt="saxophone">
+          <div class="caption">
+            <h2>Saxophone</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis, fuga!</p>
+          </div>
+        </div>
+        <div class="element">
+          <img src="./image/photo7.avif" alt="trumpette">
+          <div class="caption">
+            <h2>Trompette</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis, fuga!</p>
+          </div>
+        </div>
+        <div class="element">
+          <img src="./image/guitar.jpg" alt="guitar">
+          <div class="caption">
+            <h2>Guitar</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis, fuga!</p>
+          </div>
+        </div>
+        <div class="element">
+          <img src="./image/photo6.avif" alt="tamtam">
+          <div class="caption">
+            <h2>Djembe</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis, fuga!</p>
+          </div>
+        </div>
+        <div class="element">
+          <img src="./image/baterie.jpg" alt="baterie">
+          <div class="caption">
+            <h2>Baterie</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis, fuga!</p>
+          </div>
+        </div>
+      </div>
+      <!-- Flèches -->
+      <i id="nav-gauche" class="las la-chevron-left"></i>
+      <i id="nav-droite" class="las la-chevron-right"></i>
+    </div>
+
+    <!-- FIN DE LA SECTION DIAPORAMA -->
+
+  </main>
+
+  <!-- FIN DE LA SECTION MAIN -->
+
+
+  <!-- PARTIE QUESTION -->
+  <section>
+    <h1 class="qst">Qui suis-je ?</h1>
+  </section>
+  <section>
+    <div class="container">
+
+      <div class="cards">
+        <div class="text-card">
+          <button class="quiz" type="submit" onclick="openPopup1()">
+            <h3>un proffeseur de musique</h3>
+          </button>
+          <div class="popup" id="popup-prof">
+            <p class="prof">En tant que proffesseur de musique vous devez avoir
+              Une licence en éducation musicale ainsi qu'une grande
+              compétence musicale et la maîtrise d'un instrument de musique. <br>
+              votre role sera de former les jeunes recrue en leurs enseignant la musique theorique et pratique. <br>
+              vous serez payé selon vos exigences dans le formulaire que vous remplirez.
+
+              pour remplir le formulaire cliquez <a href="">ici</a>
+            </p>
+            <button type="button" onclick="closePopup1()">ok</button>
+          </div>
+        </div>
+        <div class="text-card">
+          <button class="quiz" type="submit" onclick="openPopup2()">
+            <h3>un eleve de musique</h3>
+          </button>
+          <div class="popup" id="popup-eleve">
+            <p class="eleve">En tant que élève vous aurez droit a la meilleur formation musicale de votre choix. <br>
+              En vous inscrivant vous aurez droit a un espace pour etudiant . <br>
+              vous serez formé par des enseignants hautement qualifié. pour vous inscrire cliquez <a href="">ici</a>
+            </p>
+            <button type="button" onclick="closePopup2()">ok</button>
+          </div>
+        </div>
+        <div class="text-card">
+          <button class="quiz" type="submit" onclick="openPopup3()">
+            <h3>un simple visiteur</h3>
+          </button>
+          <div class="popup" id="popup-visit">
+            <p class="visit">En tant que visiteur vous avez droit a un espace restrein pour avoir acces au contenu du
+              site
+              vous devez d'abord vous enregister . cliquez <a href="">ici</a> pour vous enregister.
+            </p>
+            <button type="button" onclick="closePopup3()">ok</button>
+          </div>
+        </div>
+      </div>
+  </section>
+
+
+  <!-- DEBUT DE LA SECTION FOOTER -->
+  <footer>
+    <div class="waves">
+      <div class="wave" id="wave1"></div>
+      <div class="wave" id="wave2"></div>
+      <div class="wave" id="wave3"></div>
+      <div class="wave" id="wave4"></div>
+    </div>
+    <ul class="social-icons">
+      <li><a href=""><i id="nav-gauche" class="las la-chevron-left"></i></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+    </ul>
+
+  </footer>
+
+
+  <script src="app.js"></script>
+</body>
+
+</html>

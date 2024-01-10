@@ -1,0 +1,290 @@
+/*general*/
+* {
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    padding-top: 0;
+    width: 100%;
+}
+
+h1 {
+    font-family: monospace;
+    color: #F0E5E7;
+    font-size: 3rem;
+}
+/*header*/
+header.header-container {
+    background-color: rgb(247, 100, 15);
+    width: 100%;
+    height: 16.5vh;
+    /* position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
+    display: flex;
+    justify-content: space-between;*/
+    align-items: center;
+    z-index: 99; 
+}
+
+header.header-container h1 {
+    float: left;
+    margin-top: 50px;
+    text-transform: uppercase;
+}
+
+
+header.header-container .navbar{
+    display: flex;
+    float: right;
+
+}
+
+header.header-container .navbar ul.navbar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    height: 1px;
+    margin-top: 2rem;
+    margin-right: 2rem;
+    color: #ECFEE8;
+}
+header.header-container .navbar ul.navbar-container a{
+    color: #ECFEE8;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+header.header-container .navbar ul.navbar-container a::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    left: 0;
+    bottom: -6px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s;
+}
+header.header-container .navbar ul.navbar-container a:hover::after{
+    background: rgb(0, 217, 255);
+    color: black; 
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+header.header-container .navbar ul.navbar-container li {
+    list-style: none;
+    font-weight: 700;
+
+}
+
+header.header-container .navbar ul.navbar-container li a.nav-link {
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+
+section div.div-container {
+    margin-top: 0rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ECFEE8;
+    height: 80px;
+}
+
+ .wrapper {
+    display: flex;
+    flex-direction:row;
+    gap: 3rem;
+    text-align: center;
+    background-color: #ECFEE8;
+    width: 100%;
+    margin: 1rem; 
+    overflow: hidden;
+}
+
+.citation{
+    border: 2px solid black;
+    height: 100%;
+}
+
+main{
+    width: 80px;
+}
+.animation{ 
+    height: 100%;
+    width: 100%; 
+    position: relative;
+    overflow: hidden;
+}
+.elements{
+    display: flex;
+}
+.element{
+    flex: 1 0 100%;
+    position: relative;
+}
+.element>img{
+    width: 100%;
+} 
+.caption{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    background-color: rgba(255 , 255 , 255, 0.4);
+    transform: translate(-50% ,-50%);
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+#nav-gauche , #nav-droite{
+    position: absolute;
+    top:15%;
+    transform: translateY(50%);
+    color: #ffffff;
+    font-size: 3rem;
+    cursor: pointer;
+}
+#nav-droite{
+    right: 0;
+    transform: translateY(50%);
+} 
+
+
+
+ section #categories {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    gap: 5rem;
+    background-color: rgb(0, 184, 197);
+   
+}
+.fieldset{
+    justify-content: center;
+    overflow: hidden;
+    
+}
+
+#categories .teachers-container {
+    display: block;
+    width: 625px;
+    height: 400px;
+}
+
+#categories .students-container {
+    display: block;
+    width: 625px;
+    height: 400px;
+    color: #000;
+}
+
+#categories .teachers-container .teacher {
+    margin-bottom: 4rem;
+    color: #111111;
+    width: 500px;
+    height: 250px;
+    background-image: url('image/photo5.avif');
+    border-top-width: 32px;
+    border-top-style: solid;
+    border-left-width: 11px;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-right-width: 900px;
+    border-bottom-width: 22px;
+    border-bottom-style: solid;
+    padding-left: 111px;
+    padding-top: 2px;
+    padding-bottom: 22px;
+    padding-right: 2px;
+    width: 500px;
+    height: 250px;
+    background-color: beige;
+
+
+}
+
+
+#categories .students-container .student {
+    color: #111111;
+    margin-bottom: 4rem;
+    background-image: url('image/photo4.avif');
+    border-top-width: 32px;
+    border-top-style: solid;
+    border-left-width: 11px;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-right-width: 900px;
+    border-bottom-width: 22px;
+    border-bottom-style: solid;
+    padding-left: 111px;
+    padding-top: 2px;
+    padding-bottom: 22px;
+    padding-right: 2px;
+    width: 500px;
+    height: 250px;
+}
+.teacher a p{
+    color: rgb(22, 252, 1);
+}
+.student a p{
+    color: rgb(22, 255, 1);
+}
+fieldset {
+    display: flex;
+
+}
+
+.teachers-container .teacher li {
+    color: rgb(0, 0, 0);
+    font-style: italic;
+
+} 
+ 
+.footer-container {
+    height: 200px;
+    background-color: #ff7700;
+    color: #000000;
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    gap: 6rem;
+     margin-top: -20rem; 
+}
+.footer-container span{
+    color: rgb(0, 0, 0);
+}
+
+.footer-container .services-info{
+    margin-left: 40px;
+    margin-right: 40px;
+      margin-top: 10px;
+    margin-bottom: 50px;
+    color:#ECFEE8;
+}
+
+.footer-container .contact-info .social-links .fab{
+    color: rgb(54, 208, 185) ;
+    width: 23px;
+    gap: 2rem;
+}
+.footer-container .affiliation-info{
+    color: #ECFEE8;
+}
