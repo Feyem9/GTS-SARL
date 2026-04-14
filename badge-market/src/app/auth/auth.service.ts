@@ -29,9 +29,10 @@ export class AuthService {
   private initAuthListener(): void {
     const auth = getAuth();
     onAuthStateChanged(auth, async (user) => {
+      this.isInitialized = false; // reset pendant la vérification async
       if (user) {
         this.isAuthenticated = true;
-        // Vérifier si admin
+        // Vérifier si admin — isInitialized passe à true APRÈS getDoc
         try {
           const db = getFirestore();
           const userDoc = await getDoc(doc(db, 'users', user.uid));
@@ -48,7 +49,7 @@ export class AuthService {
         this.isAuthenticated = false;
         this.isAdmin = false;
       }
-      this.isInitialized = true;
+      this.isInitialized = true; // seulement ici, après tout
     });
   }
 
