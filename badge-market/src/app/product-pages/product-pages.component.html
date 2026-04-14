@@ -1,0 +1,21 @@
+<h1>Products List</h1>
+<!-- <button (click)="showProducts = !showProducts">
+    <ng-container *ngIf="showProducts">hide Products</ng-container>
+    <ng-container *ngIf="!showProducts">show Products</ng-container>
+
+</button> -->
+<!-- <input type="text" [(ngModel)] = "product" />
+    <p> {{product}} </p> -->
+
+<ul *ngIf="showProducts">
+
+    <ng-container *ngFor="let badge of badges ; let i=index ">
+       <app-product [badge]="badge"></app-product>
+    </ng-container>
+
+
+</ul>
+<!-- <button>
+    <a href="/cart" style="color: black;text-decoration: none;">view your cart here</a>
+</button>   -->
+

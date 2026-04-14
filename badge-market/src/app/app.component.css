@@ -1,0 +1,9 @@
+footer{
+    position: absolute;
+    /* bottom: auto; */
+}
+
+#bot{
+    position: relative;
+    bottom: -25rem;
+}
