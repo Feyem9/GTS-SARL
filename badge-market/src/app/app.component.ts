@@ -1,29 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { firebaseConfig } from './firebase/firebase.config';
-import { initializeApp } from "firebase/app";
+import { Component } from '@angular/core';
 import { AuthService } from './auth/auth.service';
+import { CartService } from './services/cart.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
-  title = 'ecomerce';
+export class AppComponent {
+  title = 'badge-market';
 
-  constructor(private authService : AuthService){}
+  constructor(private authService: AuthService, private cartService: CartService) {}
 
-  ngOnInit(): void {
-    initializeApp(firebaseConfig);
+  isAuthenticated() { return this.authService.isAuthenticated; }
+  isAdmin() { return this.authService.isAdmin; }
+  logout() { this.authService.logout(); }
+
+  getCartCount(): number {
+    return this.cartService.getCount();
   }
-
-
-  isAuthenticated(){
-    return this.authService.isAuthenticated;
-  }
-
-  logout(){
-    this.authService.logout(); 
-  }
-
 }

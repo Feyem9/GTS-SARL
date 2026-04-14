@@ -2,19 +2,29 @@ import { CanActivateFn, Router } from '@angular/router';
 import { inject } from '@angular/core';
 import { AuthService } from './auth.service';
 
-export const authGuard: CanActivateFn = (route, state) => {
-const authService = inject(AuthService)
+export const authGuard: CanActivateFn = async () => {
+  const authService = inject(AuthService);
+  const router = inject(Router);
 
-if (authService.isAuthenticated){
-  const router = new Router();
-  router.navigate(['register'],{
-    queryParams: {message: 'please sign in '},
-    // alert ('please you need to sign in first'),
-  })
-  return true;
+  // Attendre que Firebase ait vérifié la session (max 3s)
+  if (!authService.isInitialized) {
+    await new Promise<void>((resolve) => {
+      const interval = setInterval(() => {
+        if (authService.isInitialized) {
+          clearInterval(interval);
+          resolve();
+        }
+      }, 50);
+      setTimeout(() => { clearInterval(interval); resolve(); }, 3000);
+    });
   }
 
+  if (authService.isAuthenticated) {
+    return true;
+  }
 
-  return authService.isAuthenticated;
+  router.navigate(['/login'], {
+    queryParams: { message: 'Please sign in first' }
+  });
+  return false;
 };
-

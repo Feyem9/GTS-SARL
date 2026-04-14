@@ -19,13 +19,15 @@ export class LoginComponent {
 
 
   submit() {
-
     this.authService.login(this.form);
-
   }
 
-  isLoading(){
+  isLoading() {
     return this.authService.isLoading;
+  }
+
+  getError() {
+    return this.authService.errorMessage;
   }
 
 }

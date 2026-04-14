@@ -1,0 +1,99 @@
+<div class="max-w-4xl mx-auto p-8">
+  <h1 class="text-3xl font-bold text-purple-900 mb-2">My Orders</h1>
+  <p class="text-gray-500 mb-8">Track all your custom badge orders here.</p>
+
+  <!-- Loading -->
+  <div *ngIf="isLoading" class="text-center mt-10">
+    <p class="text-purple-700 text-xl animate-pulse">Loading your orders...</p>
+  </div>
+
+  <!-- Erreur -->
+  <div *ngIf="errorMessage" class="p-4 bg-red-100 text-red-600 rounded mb-6">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Aucune commande -->
+  <div *ngIf="!isLoading && orders.length === 0 && !errorMessage"
+    class="text-center text-gray-400 mt-16">
+    <p class="text-5xl mb-4">📦</p>
+    <p class="text-xl">No orders yet.</p>
+    <a href="/custom-order"
+      class="mt-4 inline-block px-6 py-2 bg-purple-700 text-white rounded hover:bg-purple-900">
+      Place a Custom Order
+    </a>
+  </div>
+
+  <!-- Liste des commandes -->
+  <div *ngIf="!isLoading && orders.length > 0" class="flex flex-col gap-6">
+    <div *ngFor="let order of orders"
+      class="bg-white rounded-xl shadow p-6 border border-gray-100 hover:shadow-md transition">
+
+      <!-- Header -->
+      <div class="flex justify-between items-start mb-4">
+        <div>
+          <h2 class="text-xl font-bold text-purple-900">{{ order.name | titlecase }}</h2>
+          <p class="text-sm text-gray-400">{{ formatDate(order.createdAt) }}</p>
+        </div>
+        <span class="px-3 py-1 rounded-full text-sm font-semibold capitalize"
+          [ngClass]="getStatusClass(order.status)">
+          {{ order.status || 'pending' }}
+        </span>
+      </div>
+
+      <!-- Détails -->
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm text-gray-600">
+        <div>
+          <p class="font-semibold text-gray-700">Text</p>
+          <p>{{ order.text }}</p>
+        </div>
+        <div>
+          <p class="font-semibold text-gray-700">Shape</p>
+          <p class="capitalize">{{ order.shape }}</p>
+        </div>
+        <div>
+          <p class="font-semibold text-gray-700">Quantity</p>
+          <p>{{ order.quantity }}</p>
+        </div>
+        <div>
+          <p class="font-semibold text-gray-700">Color</p>
+          <div class="flex items-center gap-2">
+            <span class="w-5 h-5 rounded-full border"
+              [style.background-color]="order.color"></span>
+            <span>{{ order.color }}</span>
+          </div>
+        </div>
+        <div *ngIf="order.notes">
+          <p class="font-semibold text-gray-700">Notes</p>
+          <p>{{ order.notes }}</p>
+        </div>
+        <div *ngIf="order.logoUrl">
+          <p class="font-semibold text-gray-700">Logo</p>
+          <img [src]="order.logoUrl" alt="logo" class="h-10 object-contain rounded border" />
+        </div>
+      </div>
+
+      <!-- Aperçu badge -->
+      <div class="mt-4 flex justify-center">
+        <div class="px-6 py-2 text-white font-bold shadow"
+          [style.background-color]="order.color"
+          [ngClass]="{
+            'rounded-full': order.shape === 'round',
+            'rounded-none':  order.shape === 'square',
+            'rounded-3xl':   order.shape === 'oval',
+            'rounded-lg':    order.shape === 'rectangle' || order.shape === 'custom'
+          }">
+          {{ order.text }}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bouton nouvelle commande -->
+  <div *ngIf="!isLoading && orders.length > 0" class="mt-8 text-center">
+    <a href="/custom-order"
+      class="px-6 py-3 bg-purple-700 text-white rounded-lg hover:bg-purple-900 font-semibold">
+      + New Custom Order
+    </a>
+  </div>
+</div>

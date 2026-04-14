@@ -1,14 +1,50 @@
-
-
-<li class="li border-spacing-x-1 m-4 p-4 " >
-    <!-- <p class="index"> {{i+1}}</p> -->
+<!-- Vue carte (dans la liste) -->
+<ng-container *ngIf="!isDetailPage">
+  <li class="li border-spacing-x-1 m-4 p-4 cursor-pointer" (click)="goToDetail()">
     <img [src]="badge.image" [alt]="badge.title" width="380px" />
+    <p class="title">{{ badge.title | titlecase }}</p>
+    <p class="amount">{{ badge.price | currency }}</p>
+    <button class="but" (click)="addToCart(); $event.stopPropagation()" *ngIf="!isInCart"
+      style="width: 200px; height: 50px;">
+      Add to cart
+    </button>
+    <button class="but" (click)="removeFromCart(); $event.stopPropagation()" *ngIf="isInCart"
+      style="width: 200px; height: 50px;">
+      Remove from cart
+    </button>
+  </li>
+</ng-container>
 
-    <p class="title"> {{badge.title | titlecase}} </p>
-    <p class="amount">{{badge.price | currency}}</p>
+<!-- Vue page de détail -->
+<ng-container *ngIf="isDetailPage">
+  <div class="max-w-2xl mx-auto p-8">
+    <button (click)="goBack()" class="mb-6 text-purple-700 hover:underline flex items-center gap-1">
+      ← Back to products
+    </button>
 
-    <button class="but" (click)="addToCart()" *ngIf="!isInCart" style="width: 200px;height: 50px;">add to cart</button>
-    <button class="but" (click)="removeFromCart()" *ngIf="isInCart" style="width: 200px;height: 50px;">remove from Cart</button>
-</li>
-    
+    <div class="flex flex-col md:flex-row gap-8 bg-white rounded-xl shadow p-6">
+      <img [src]="badge.image" [alt]="badge.title" class="w-full md:w-1/2 object-cover rounded-lg" />
 
+      <div class="flex flex-col justify-between">
+        <div>
+          <h1 class="text-3xl font-bold text-purple-900 mb-2">{{ badge.title | titlecase }}</h1>
+          <p class="text-2xl text-yellow-600 font-semibold mb-4">{{ badge.price | currency }}</p>
+          <p class="text-gray-600 mb-6">
+            High quality badge, available for immediate delivery or custom order.
+          </p>
+        </div>
+
+        <div class="flex gap-4">
+          <button (click)="addToCart()" *ngIf="!isInCart"
+            class="px-6 py-3 bg-purple-700 text-white rounded hover:bg-purple-900 font-semibold">
+            Add to cart
+          </button>
+          <button (click)="removeFromCart()" *ngIf="isInCart"
+            class="px-6 py-3 bg-red-500 text-white rounded hover:bg-red-700 font-semibold">
+            Remove from cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

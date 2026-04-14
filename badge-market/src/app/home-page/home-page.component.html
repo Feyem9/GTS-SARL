@@ -1,21 +1,79 @@
-<div class="flex p-4 m-4 text-center justify-center text-4xl">
-    <div class="">
-        <img src="{{image}}" alt="" style="width: 100%;">
-        <h1><b> {{title}}</b> </h1>
+<!-- Hero Section -->
+<section class="relative bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900 text-white overflow-hidden">
+  <div class="absolute inset-0 opacity-10"
+    style="background-image: url('assets/welcome.webp'); background-size: cover; background-position: center;">
+  </div>
+  <div class="relative max-w-6xl mx-auto px-6 py-24 flex flex-col md:flex-row items-center gap-12">
+
+    <!-- Text -->
+    <div class="flex-1 text-center md:text-left fade-in">
+      <span class="inline-block bg-yellow-400 text-purple-900 text-sm font-bold px-3 py-1 rounded-full mb-4">
+        🏅 Premium Badges
+      </span>
+      <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
+        Your Badge,<br>
+        <span class="text-yellow-400">Your Identity</span>
+      </h1>
+      <p class="text-lg text-purple-200 mb-8 max-w-md">
+        Badge Market is your go-to platform for professional badges.
+        Browse our collection or order a fully personalized badge.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+        <a routerLink="/products"
+          class="px-8 py-3 bg-yellow-400 text-purple-900 font-bold rounded-full hover:bg-yellow-300 transition shadow-lg">
+          Browse Products
+        </a>
+        <a routerLink="/custom-order"
+          class="px-8 py-3 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-purple-900 transition">
+          Custom Order
+        </a>
+      </div>
     </div>
 
-    <div class="text-4xl">
-        <p class="font-mono">
-            badge market is a web site <br>where you can find your<br> proper badge or comand a <br>personilized badge.
-        </p>
-
-        <p class="text-yellow-600">
-            <i><br>guest our products by cliking on this button </i>
-            <button type="button" class="border-2 bg-white text-purple-900" id="but">
-                <a href="/products">products</a>
-            </button>
-        </p>
+    <!-- Image -->
+    <div class="flex-1 flex justify-center">
+      <img src="assets/welcome.webp" alt="Badge Market"
+        class="rounded-2xl shadow-2xl max-w-sm w-full object-cover" />
     </div>
-</div>
-<!-- <app-product-pages></app-product-pages>
-<app-cart></app-cart> -->
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center text-purple-900 mb-12">Why Badge Market?</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <div class="card text-center hover:shadow-lg transition">
+        <div class="text-5xl mb-4">🎨</div>
+        <h3 class="text-xl font-bold text-purple-900 mb-2">Custom Design</h3>
+        <p class="text-gray-500">Choose your color, shape, text and logo. We make it exactly as you want.</p>
+      </div>
+
+      <div class="card text-center hover:shadow-lg transition">
+        <div class="text-5xl mb-4">⚡</div>
+        <h3 class="text-xl font-bold text-purple-900 mb-2">Fast Delivery</h3>
+        <p class="text-gray-500">Quick turnaround on all orders. Professional quality guaranteed.</p>
+      </div>
+
+      <div class="card text-center hover:shadow-lg transition">
+        <div class="text-5xl mb-4">🔒</div>
+        <h3 class="text-xl font-bold text-purple-900 mb-2">Secure Payment</h3>
+        <p class="text-gray-500">Pay safely with PayUnit. Your transactions are fully protected.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-16 bg-gradient-to-r from-purple-900 to-indigo-800 text-white text-center">
+  <div class="max-w-2xl mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-4">Ready to get your badge?</h2>
+    <p class="text-purple-200 mb-8">Join hundreds of professionals who trust Badge Market.</p>
+    <a routerLink="/register"
+      class="px-10 py-4 bg-yellow-400 text-purple-900 font-bold rounded-full text-lg hover:bg-yellow-300 transition shadow-xl">
+      Get Started Free
+    </a>
+  </div>
+</section>

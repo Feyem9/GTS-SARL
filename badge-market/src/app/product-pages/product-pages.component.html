@@ -1,21 +1,77 @@
-<h1>Products List</h1>
-<!-- <button (click)="showProducts = !showProducts">
-    <ng-container *ngIf="showProducts">hide Products</ng-container>
-    <ng-container *ngIf="!showProducts">show Products</ng-container>
+<div class="p-6">
+  <h1 class="text-3xl font-bold text-purple-900 mb-6">Products List</h1>
 
-</button> -->
-<!-- <input type="text" [(ngModel)] = "product" />
-    <p> {{product}} </p> -->
+  <!-- Barre de filtres -->
+  <div class="flex flex-wrap gap-4 mb-6 bg-gray-100 p-4 rounded-xl items-end">
 
-<ul *ngIf="showProducts">
+    <!-- Recherche -->
+    <div class="flex flex-col gap-1">
+      <label class="text-sm font-semibold text-gray-600">Search</label>
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        (input)="applyFilters()"
+        placeholder="Search badges..."
+        class="p-2 rounded border border-gray-300 w-52"
+      />
+    </div>
 
-    <ng-container *ngFor="let badge of badges ; let i=index ">
-       <app-product [badge]="badge"></app-product>
-    </ng-container>
+    <!-- Filtre prix max -->
+    <div class="flex flex-col gap-1">
+      <label class="text-sm font-semibold text-gray-600">
+        Max price: <span class="text-purple-700">{{ maxPrice | currency }}</span>
+      </label>
+      <input
+        type="range"
+        [(ngModel)]="maxPrice"
+        (input)="applyFilters()"
+        [min]="0"
+        [max]="100"
+        step="5"
+        class="w-40"
+      />
+    </div>
 
+    <!-- Tri -->
+    <div class="flex flex-col gap-1">
+      <label class="text-sm font-semibold text-gray-600">Sort by</label>
+      <select
+        [(ngModel)]="selectedSort"
+        (change)="applyFilters()"
+        class="p-2 rounded border border-gray-300"
+      >
+        <option value="default">Default</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="name-asc">Name: A-Z</option>
+      </select>
+    </div>
 
-</ul>
-<!-- <button>
-    <a href="/cart" style="color: black;text-decoration: none;">view your cart here</a>
-</button>   -->
+    <!-- Reset -->
+    <button
+      (click)="resetFilters()"
+      class="px-4 py-2 bg-purple-700 text-white rounded hover:bg-purple-900"
+    >
+      Reset
+    </button>
+  </div>
 
+  <!-- Résultats -->
+  <div *ngIf="isLoading" class="text-center mt-10">
+    <p class="text-purple-700 text-xl animate-pulse">Loading products...</p>
+  </div>
+
+  <ng-container *ngIf="!isLoading">
+    <p class="text-sm text-gray-500 mb-4">{{ badges.length }} product(s) found</p>
+
+    <ul *ngIf="badges.length > 0" class="flex flex-wrap">
+      <ng-container *ngFor="let badge of badges">
+        <app-product [badge]="badge" [badgeIndex]="getOriginalIndex(badge)"></app-product>
+      </ng-container>
+    </ul>
+
+    <div *ngIf="badges.length === 0" class="text-center text-gray-400 mt-10 text-xl">
+      No products match your search.
+    </div>
+  </ng-container>
+</div>
