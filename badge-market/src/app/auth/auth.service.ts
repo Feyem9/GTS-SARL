@@ -58,6 +58,16 @@ export class AuthService {
     return auth.currentUser ? auth.currentUser.uid : null;
   }
 
+  getCurrentUserEmail(): string {
+    const auth = getAuth();
+    return auth.currentUser?.email || '';
+  }
+
+  getCurrentUserName(): string {
+    const auth = getAuth();
+    return auth.currentUser?.displayName || auth.currentUser?.email?.split('@')[0] || 'Client';
+  }
+
   login(form: loginForm) {
     if (this.isLoading) return;
     this.isLoading = true;

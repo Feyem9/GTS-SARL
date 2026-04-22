@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { PaymentService } from '../services/payment.service';
-import { AuthService } from '../auth/auth.service';
 import { badge } from '../product-pages/badge';
 
 @Component({
@@ -16,8 +15,7 @@ export class CartComponent {
 
   constructor(
     private cartService: CartService,
-    private paymentService: PaymentService,
-    private authService: AuthService
+    private paymentService: PaymentService
   ) {}
 
   getCart(): badge[] { return this.cartService.get(); }
@@ -26,18 +24,15 @@ export class CartComponent {
   clearCart() { this.cartService.clearCart(); }
 
   async checkout() {
-    if (this.isProcessing) return;
+    if (this.isProcessing || this.getCart().length === 0) return;
     this.isProcessing = true;
     this.errorMessage = '';
     try {
-      const paymentUrl = await this.paymentService.initiatePayment(
-        this.getCart(),
-        'client@email.com',  // à remplacer par l'email de l'utilisateur connecté
-        'Client Name'
-      );
+      const paymentUrl = await this.paymentService.initiatePayment(this.getCart());
       window.location.href = paymentUrl;
-    } catch (e) {
-      this.errorMessage = 'Payment failed. Please try again.';
+    } catch (e: unknown) {
+      const msg = e instanceof Error ? e.message : 'Payment failed';
+      this.errorMessage = msg;
     } finally {
       this.isProcessing = false;
     }

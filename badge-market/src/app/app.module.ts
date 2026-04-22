@@ -13,6 +13,8 @@ import { AuthModule } from './auth/auth/auth.module';
 import { CustomOrderComponent } from './custom-order/custom-order.component';
 import { OrdersComponent } from './orders/orders.component';
 import { AdminComponent } from './admin/admin.component';
+import { PaymentSuccessComponent } from './payment-success/payment-success.component';
+import { PaymentCancelComponent } from './payment-cancel/payment-cancel.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { AdminComponent } from './admin/admin.component';
     CustomOrderComponent,
     OrdersComponent,
     AdminComponent,
+    PaymentSuccessComponent,
+    PaymentCancelComponent,
   ],
   imports: [
     BrowserModule,

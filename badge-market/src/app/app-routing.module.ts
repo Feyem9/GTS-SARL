@@ -9,6 +9,8 @@ import { RegisterComponent } from './register/register.component';
 import { CustomOrderComponent } from './custom-order/custom-order.component';
 import { OrdersComponent } from './orders/orders.component';
 import { AdminComponent } from './admin/admin.component';
+import { PaymentSuccessComponent } from './payment-success/payment-success.component';
+import { PaymentCancelComponent } from './payment-cancel/payment-cancel.component';
 import { authGuard } from './auth/auth.guard';
 import { adminGuard } from './auth/admin.guard';
 
@@ -20,6 +22,8 @@ const routes: Routes = [
   { path: 'custom-order', component: CustomOrderComponent,   canActivate: [authGuard] },
   { path: 'orders',       component: OrdersComponent,         canActivate: [authGuard] },
   { path: 'admin',        component: AdminComponent,          canActivate: [adminGuard] },
+  { path: 'payment/success', component: PaymentSuccessComponent, canActivate: [authGuard] },
+  { path: 'payment/cancel',  component: PaymentCancelComponent,  canActivate: [authGuard] },
   { path: 'login',        component: LoginComponent },
   { path: 'register',     component: RegisterComponent },
   { path: '',             redirectTo: 'home', pathMatch: 'full' }
