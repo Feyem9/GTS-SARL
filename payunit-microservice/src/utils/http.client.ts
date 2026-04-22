@@ -1,9 +1,13 @@
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
+import * as http from 'http';
+import * as https from 'https';
 
-// Client pour les appels vers l'API PayUnit
+// Client pour les appels vers l'API PayUnit — force HTTP/1.1 (PayUnit ne supporte pas HTTP/2)
 export const payunitClient = axios.create({
   timeout: 15000,
+  httpAgent: new http.Agent({ keepAlive: false }),
+  httpsAgent: new https.Agent({ keepAlive: false }),
 });
 
 // Retry automatique sur les erreurs réseau et 5xx — max 3 tentatives
